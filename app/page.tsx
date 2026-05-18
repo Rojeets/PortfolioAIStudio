@@ -3,6 +3,7 @@
 import Logo from '@/components/Logo';
 import Hero from '@/components/Hero';
 import AIChat from '@/components/AIChat';
+import Image from 'next/image';
 import { motion } from 'motion/react';
 import { Menu, Globe, MessageSquare } from 'lucide-react';
 
@@ -159,11 +160,23 @@ export default function Home() {
           </motion.div>
           
           <div className="grid grid-cols-2 gap-4">
-            <div className="aspect-[4/5] bg-white/5 rounded-3xl border border-white/5 overflow-hidden group">
-              <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&q=80" className="w-full h-full object-cover grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700" alt="Code Arch" />
+            <div className="aspect-[4/5] relative bg-white/5 rounded-3xl border border-white/5 overflow-hidden group">
+              <Image 
+                src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&q=80" 
+                fill
+                className="w-full h-full object-cover grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700" 
+                alt="Code Arch"
+                referrerPolicy="no-referrer"
+              />
             </div>
-            <div className="aspect-[4/5] bg-white/5 rounded-3xl border border-white/5 overflow-hidden group mt-12">
-              <img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=600&q=80" className="w-full h-full object-cover grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700" alt="Vision Arch" />
+            <div className="aspect-[4/5] relative bg-white/5 rounded-3xl border border-white/5 overflow-hidden group mt-12">
+              <Image 
+                src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=600&q=80" 
+                fill
+                className="w-full h-full object-cover grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700" 
+                alt="Vision Arch"
+                referrerPolicy="no-referrer"
+              />
             </div>
           </div>
         </div>
