@@ -3,8 +3,12 @@
 import { motion } from 'motion/react';
 import { ArrowRight, Code2, Globe, Laptop, Sparkles, Terminal } from 'lucide-react';
 import Image from 'next/image';
+import { getHero, getPersonal } from '@/data/portfolio';
 
 export default function Hero() {
+  const hero = getHero();
+  const personal = getPersonal();
+
   return (
     <section className="relative min-h-screen flex flex-col justify-center px-6 lg:px-12 py-24 overflow-hidden bg-[#030303]" id="hero-section">
       {/* Background Atmosphere */}
@@ -35,7 +39,7 @@ export default function Hero() {
             >
               <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-indigo-400 flex items-center gap-2">
                 <Sparkles size={12} />
-                Full Stack Specialist
+                {hero.badgeText}
               </span>
             </motion.div>
             
@@ -45,7 +49,7 @@ export default function Hero() {
             </h1>
             
             <p className="text-lg text-white/50 max-w-xl leading-relaxed mb-10">
-              I specialize in enterprise Laravel & Django architectures, bridging the gap between high-performance backends and seamless user interfaces.
+              {personal.tagline}
             </p>
             
             <div className="flex flex-wrap gap-4">
@@ -67,7 +71,7 @@ export default function Hero() {
           >
             <div className="absolute inset-0 bg-gradient-to-t from-[#030303] via-transparent to-transparent z-10 opacity-60" />
             <Image 
-              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80" // Placeholder for Rojit's image
+              src="/rojit-pokharel.png" // Placeholder for Rojit's image
               alt="Rojit Pokharel"
               fill
               className="object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out grayscale hover:grayscale-0"
@@ -81,7 +85,7 @@ export default function Hero() {
             </div>
 
             <div className="absolute bottom-10 left-10 z-20">
-              <h2 className="text-3xl font-display font-bold tracking-tight mb-1 text-white">Rojit Pokharel</h2>
+              <h2 className="text-3xl font-display font-bold tracking-tight mb-1 text-white">{personal.name}</h2>
               <p className="text-xs uppercase tracking-widest text-indigo-400 font-black">Lead Developer</p>
             </div>
           </motion.div>
@@ -113,7 +117,7 @@ export default function Hero() {
               <Globe className="text-indigo-400" size={24} />
               <div className="text-[10px] font-bold text-white/20 uppercase tracking-widest text-right">Available<br/>Worldwide</div>
             </div>
-            <div className="text-xs font-bold tracking-tighter text-white/80">Remote / Nepal</div>
+            <div className="text-xs font-bold tracking-tighter text-white/80">{personal.location}</div>
           </motion.div>
 
           {/* Experience/Projects Stats */}

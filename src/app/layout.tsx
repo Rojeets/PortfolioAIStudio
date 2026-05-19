@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter, Space_Grotesk } from 'next/font/google';
 import './globals.css';
+import { getMeta } from '@/data/portfolio';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -12,9 +13,17 @@ const spaceGrotesk = Space_Grotesk({
   variable: '--font-display',
 });
 
+const meta = getMeta();
+
 export const metadata: Metadata = {
-  title: 'Rojit Pokharel | Full Stack Developer',
-  description: 'Full Stack Developer specializing in enterprise-grade applications with Laravel, Django, and React.',
+  title: meta.siteTitle,
+  description: meta.description,
+  keywords: meta.keywords,
+  openGraph: {
+    title: meta.siteTitle,
+    description: meta.description,
+    images: [{ url: meta.ogImage }],
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
